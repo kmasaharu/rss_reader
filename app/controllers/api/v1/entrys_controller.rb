@@ -3,10 +3,11 @@ class Api::V1::EntrysController < ApplicationController
 
   # 記事一覧を日付順に取得
   def index
-    @entrys = Rails.cache.read(request.url + params[:app_id].to_s)
+    url = request.url + params[:app_id].to_s;
+    @entrys = Rails.cache.read(url)
     if @entrys.nil?
       @entrys = Entry.includes(:site).where(Site.arel_table[:app_id].eq(params[:app_id])).order("entries.created_at desc")
-      Rails.cache.write(request.url, @entrys, expires_in: 10.minutes)  # 10分で消える。
+      Rails.cache.write(url, @entrys, expires_in: 10.minutes)  # 10分で消える。
     end
   end
   
