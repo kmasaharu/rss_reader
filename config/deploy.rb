@@ -29,6 +29,7 @@ role :db,  "153.121.55.155"
 after "deploy:symlink","deploy:update_crontab"
 
 namespace :deploy do
+  desc "Update the crontab file"
   task :start, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
@@ -38,7 +39,6 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_release}/tmp/restart.txt"
   end
-  desc "Update the crontab file"
   task :update_crontab, :roles => :db do
     run "cd #{release_path} && chmod 755 script/runner"
     run "cd #{release_path} && whenever --update-crontab #{application}"
