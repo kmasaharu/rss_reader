@@ -40,7 +40,7 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
   task :update_crontab, :roles => :db do
-    run "cd #{release_path} && chmod 755 script/runner"
+   # run "cd #{release_path} && chmod 755 script/runner"
     run "cd #{release_path} && whenever --update-crontab #{application}"
   end
 end
