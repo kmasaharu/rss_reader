@@ -26,6 +26,8 @@ role :db,  "153.121.55.155"
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
+after "deploy:symlink","deploy:update_crontab"
+
 namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
@@ -35,6 +37,11 @@ namespace :deploy do
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_release}/tmp/restart.txt"
+  end
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{release_path} && chmod 755 script/runner"
+    run "cd #{release_path} && whenever --update-crontab #{application}"
   end
 end
 
