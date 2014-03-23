@@ -88,3 +88,27 @@ end
 every 1.day, :at => '11:00 pm' do
   runner "Tasks::GetEntrys.execute"
 end
+
+every 1.day, :at => '11:30 pm' do
+  runner "Tasks::GetEntrys.execute"
+end
+
+every 1.day, :at => '00:00 am' do
+  runner "Tasks::GetEntrys.execute"
+end
+
+every 1.day, :at => '00:30 am' do
+  runner "Tasks::GetEntrys.execute"
+end
+
+every 1.day, :at => '01:00 am' do
+  runner "Tasks::GetEntrys.execute"
+end
+
+every 1.day, :at => '01:30 am' do
+  runner "Tasks::GetEntrys.execute"
+end
+
+every 1.day, :at => '02:00 am' do
+  runner "Tasks::GetEntrys.execute"
+end
