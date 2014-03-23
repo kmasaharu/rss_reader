@@ -12,7 +12,7 @@ class Tasks::GetEntrys
           if !feed.urls[0].nil?
             @entry = Entry.find(:all, :conditions => { :title => feed.title.force_encoding('utf-8') })
             if @entry.empty?
-              @entry = Entry.new(:site_id => site.id, :title => feed.title.force_encoding('utf-8'), :url => feed.urls[0], :public_date => feed.last_updated)
+              @entry = Entry.new(:site_id => site.id, :title => feed.title.force_encoding('utf-8'), :url => feed.urls[0], :public_date => feed.date_published)
               @entry.save
             else
               puts 'Info exsit title'
