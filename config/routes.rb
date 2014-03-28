@@ -8,6 +8,7 @@ RssReader::Application.routes.draw do
       resources :apps, only: [:index, :show]
       resources :sites, only: [:index, :show, :create, :update, :destroy]
       resources :entrys, only: [:index, :show, :create, :update, :destroy]
+      resources :palaces, only: [:index]
       scope :ranking, as: :ranking do
         get '/' => 'entrys#ranking'
       end
