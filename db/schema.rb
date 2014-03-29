@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328160608) do
+ActiveRecord::Schema.define(version: 20140329162721) do
 
   create_table "apps", force: true do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140328160608) do
     t.integer  "view_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "locked"
   end
 
   create_table "sites", force: true do |t|
