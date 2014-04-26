@@ -5,30 +5,35 @@ every 1.day, :at => '4:30 am' do
   runner "Tasks::GetEntrys.execute"
 end
 
-every 1.day, :at => '11:00 am' do
+every 1.day, :at => '4:00 pm' do
   runner "Tasks::GetEntrys.execute"
 end
 
-every 1.day, :at => '2:30 pm' do
-  runner "Tasks::GetEntrys.execute"
+
+
+
+every 1.day, :at => '4:00 am' do
+  runner "Tasks::GetBiyouEntrys.execute"
 end
 
-every 1.day, :at => '4:30 pm' do
-  runner "Tasks::GetEntrys.execute"
+every 1.day, :at => '3:00 pm' do
+  runner "Tasks::GetBiyouEntrys.execute"
 end
 
-every 1.day, :at => '5:30 pm' do
-  runner "Tasks::GetEntrys.execute"
+every 1.day, :at => '7:30 pm' do
+  runner "Tasks::GetBiyouEntrys.execute"
 end
 
-every 1.day, :at => '7:00 pm' do
-  runner "Tasks::GetEntrys.execute"
+
+
+every 1.day, :at => '4:00 am' do
+  runner "Tasks::GetKeibaEntrys.execute"
 end
 
-every 1.day, :at => '8:30 pm' do
-  runner "Tasks::GetEntrys.execute"
+every 1.day, :at => '3:00 pm' do
+  runner "Tasks::GetKeibaEntrys.execute"
 end
 
-every 1.day, :at => '9:00 pm' do
-  runner "Tasks::GetEntrys.execute"
+every 1.day, :at => '7:30 pm' do
+  runner "Tasks::GetKeibaEntrys.execute"
 end

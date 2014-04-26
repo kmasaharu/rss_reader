@@ -1,7 +1,7 @@
-class Tasks::GetEntrys
+class Tasks::GetBiyouEntrys
   
   def self.execute
-    @sites   = Site.find(:all, :conditions => {:app_id => 1})
+    @sites   = Site.find(:all, :conditions => {:app_id => 2})
     
     @sites.each do |site|
       feeds = FeedNormalizer::FeedNormalizer.parse(open(site.rss_url), :force_parser => FeedNormalizer::SimpleRssParser)

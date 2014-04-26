@@ -1,12 +1,12 @@
-class Tasks::GetEntrys
+class Tasks::GetKeibaEntrys
   
   def self.execute
-    @sites   = Site.find(:all, :conditions => {:app_id => 1})
+    @sites   = Site.find(:all, :conditions => {:app_id => 3})
     
     @sites.each do |site|
       feeds = FeedNormalizer::FeedNormalizer.parse(open(site.rss_url), :force_parser => FeedNormalizer::SimpleRssParser)
       if !feeds.nil?
-        # まずは古い　Entry　を消す（3日間保持する）
+        # まずは古い　Entry　を消す（7日間保持する）
         Entry.destroy_all("created_at <= '#{Time.mktime(Time.now.year, Time.now.month, Time.now.day - 3, 00, 00, 00)}'")
         feeds.entries.map do | feed |  
           if !feed.urls[0].nil?
