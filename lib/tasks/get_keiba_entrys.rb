@@ -7,7 +7,7 @@ class Tasks::GetKeibaEntrys
       feeds = FeedNormalizer::FeedNormalizer.parse(open(site.rss_url), :force_parser => FeedNormalizer::SimpleRssParser)
       if !feeds.nil?
         # まずは古い　Entry　を消す（7日間保持する）
-        Entry.destroy_all("created_at <= '#{Time.mktime(Time.now.year, Time.now.month, Time.now.day - 3, 00, 00, 00)}'")
+        Entry.destroy_all("created_at <= '#{Time.mktime(Time.now.year, Time.now.month, Time.now.day - 5, 00, 00, 00)}'")
         feeds.entries.map do | feed |  
           if !feed.urls[0].nil?
             @entry = Entry.find(:all, :conditions => { :title => feed.title.force_encoding('utf-8') })

@@ -37,3 +37,34 @@ end
 every 1.day, :at => '7:30 pm' do
   runner "Tasks::GetKeibaEntrys.execute"
 end
+
+
+
+
+every 1.day, :at => '4:00 am' do
+  runner "Tasks::GetYakyuEntrys.execute"
+end
+
+every 1.day, :at => '3:00 pm' do
+  runner "Tasks::GetYakyuEntrys.execute"
+end
+
+every 1.day, :at => '7:30 pm' do
+  runner "Tasks::GetYakyuEntrys.execute"
+end
+
+
+
+
+
+every 1.day, :at => '4:00 am' do
+  runner "Tasks::GetSoccerEntrys.execute"
+end
+
+every 1.day, :at => '3:00 pm' do
+  runner "Tasks::GetSoccerEntrys.execute"
+end
+
+every 1.day, :at => '7:30 pm' do
+  runner "Tasks::GetSoccerEntrys.execute"
+end

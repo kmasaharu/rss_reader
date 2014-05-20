@@ -6,7 +6,7 @@ class Api::V1::PalacesController < ApplicationController
     @palaces = Rails.cache.read(url)
     if @palaces.nil?
       @palaces = Palace.find(:all, :conditions => {:app_id => params[:app_id]})
-      Rails.cache.write(url, @palaces, expires_in: 60.minutes) 
+      Rails.cache.write(url, @palaces, expires_in: 10.minutes) 
     end
   end
   
