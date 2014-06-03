@@ -10,10 +10,12 @@ class Tasks::GetYakyuEntrys
         Entry.destroy_all("created_at <= '#{Time.mktime(Time.now.year, Time.now.month, Time.now.day - 3, 00, 00, 00)}'")
         feeds.entries.map do | feed |  
           if !feed.urls[0].nil?
+            puts feed.urls[0]
             @entry = Entry.find(:all, :conditions => { :title => feed.title.force_encoding('utf-8') })
             if @entry.empty?
               @entry = Entry.new(:site_id => site.id, :title => feed.title.force_encoding('utf-8'), :url => feed.urls[0], :public_date => feed.date_published)
               @entry.save
+              puts 'OK'
             else
               #puts 'Info exsit title'
             end
